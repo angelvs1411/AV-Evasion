@@ -16,7 +16,7 @@ Private Declare PtrSafe Function RtlMoveMemory Lib "KERNEL32"
 
 ' We will run the shellcode with CreateThread
 
- Private Declare PtrSafe Function CreateThread Lib "Kernel32" (ByVal SecurityAttributes As Long, 
+Private Declare PtrSafe Function CreateThread Lib "Kernel32" (ByVal SecurityAttributes As Long, 
  ByVal StackSize As Long, ByVal StartFunction As LongPtr, ThreadParameter As LongPtr, ByVal 
  CreateFlags As Long, ByRef ThreadId As Long) As LongPtr
 
