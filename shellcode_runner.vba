@@ -1,8 +1,8 @@
 ' This code demonstrates how to execute shellcode in memory with VBA.
 ' We'll need to take a look at the VirtualAlloc, RtlMoveMemory and CreateThread win32 APIs
 ' located in Kernel32.dll and translate the arguments/types to VBA.
-' When a word document (or another application of your choice) opens with this macro
-' enabled. It will call back to our meterpreter listener with a reverse shell.
+' When a word document opens with this macro enabled, It will call back
+' to our meterpreter listener with a reverse shell.
 ' Keep in mind this shell will only be active as long as the application is running.
 ' Make sure we have a 32-bit multi/handler in Metasploit with exitfunc set to "thread" to catch the shell.
 
