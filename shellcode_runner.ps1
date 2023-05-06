@@ -2,7 +2,8 @@
 # We will look up the C# signature calls for VirtualAlloc and CreateThread and
 # add them to our class. 
 # We can use the .NET Copy method from System.Runtime.InteropServices.Marshal
-
+# Be sure to execute this script with the 32-bit powershell if executing in a 
+# 32-bit application such as Office 2016.
 
 $Kernel32 = @"
 using System;
