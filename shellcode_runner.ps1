@@ -1,5 +1,5 @@
-# This script executes shellcode in memory with PS.
-# We will look up the signature calls for VirtualAlloc and CreateThread and
+# This script executes shellcode in memory with PS with help from C# and .NET.
+# We will look up the C# signature calls for VirtualAlloc and CreateThread and
 # add them to our class. 
 # We can use the .NET Copy method from System.Runtime.InteropServices.Marshal
 
