@@ -1,3 +1,3 @@
 # Evasion-Persistence
 
-Collection of scripts to help with Evasion and Peristence in a Windows Environment.
+Collection of scripts to help with evasion and peristence in a Windows Environment.
