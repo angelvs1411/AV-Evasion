@@ -1,5 +1,6 @@
 # Use this script to get the proxy settings for a standard user account 
 # and apply them to SYSTEM if network traffic is being routed through a proxy
+# and we have SYSTEM level access
 
 New-PSDrive -Name HKU -PSProvider Registry -Root HKEY_USERS | Out-Null
 $keys = Get-ChildItem 'HKU:\'
